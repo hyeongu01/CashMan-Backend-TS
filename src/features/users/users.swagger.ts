@@ -6,7 +6,7 @@ const TAG_NAME = "02. Users";
 const usersPaths: OpenAPIV3.PathsObject = {
     "/users/me": {
         get: {
-            summary: "내 정보 조회 (개발중)",
+            summary: "내 정보 조회",
             tags: [TAG_NAME],
             security: [{BearerAuth: []}],
             responses: {

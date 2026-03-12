@@ -3,7 +3,7 @@ import * as controller from "./auth.controller";
 
 const router = express.Router();
 
-router.get("/naver/callback", controller.naverLogin);
+router.get("/naver/callback", controller.naverLogin);       // 없앨 예정
 // router.post("/login")
 // router.post("/refresh")
 // router.post("/logout")

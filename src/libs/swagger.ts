@@ -21,6 +21,12 @@ export const swaggerSpec: OpenAPIV3.Document = {
         {url: "http://localhost:3000", description: "Local"},
     ],
     tags: [
+        {name: "01. Auth"},
+        {name: "02. Users"},
+        {name: "03. Accounts"},
+        {name: "04. Transactions"},
+        {name: "05. Categories"},
+        {name: "99. Test"},
     ],
     info: {
         title: "CashMan API",

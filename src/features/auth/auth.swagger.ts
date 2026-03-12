@@ -42,26 +42,26 @@ accessToken 재발급 API
 const authPaths: OpenAPIV3.PathsObject = {
     "/auth/login": {
         post: {
-            summary: "로그인 API",
+            summary: "로그인 API (개발중)",
             description: LOGIN_DESC,
             tags: [TAG_NAME],
-            requestBody: {
-                required: true,
-                content: {
-                    "application/json": {
-                        schema: {
-                            type: "object",
-                            properties: {
-                                code: {type: "string", description: "OAuth 인증 코드"},
-                                state: {type: "string", description: "[naver] 인증 상태"},
-                                provider: {type: "string", enum: ["NAVER"], description: "소셜 로그인 제공자"},
-                                deviceId: {type: "string", description: "기기 식별자 (없으면 신규 기기)"},
-                            },
-                            required: ["code", "provider", "deviceId"],
-                        }
-                    }
-                }
-            },
+            // requestBody: {
+            //     required: true,
+            //     content: {
+            //         "application/json": {
+            //             schema: {
+            //                 type: "object",
+            //                 properties: {
+            //                     code: {type: "string", description: "OAuth 인증 코드"},
+            //                     state: {type: "string", description: "[naver] 인증 상태"},
+            //                     provider: {type: "string", enum: ["NAVER"], description: "소셜 로그인 제공자"},
+            //                     deviceId: {type: "string", description: "기기 식별자 (없으면 신규 기기)"},
+            //                 },
+            //                 required: ["code", "provider", "deviceId"],
+            //             }
+            //         }
+            //     }
+            // },
             responses: {
                 "200": {
                     description: "성공",
@@ -90,7 +90,7 @@ const authPaths: OpenAPIV3.PathsObject = {
     },
     "/auth/refresh": {
         post: {
-            summary: "accessToken 재발급 API",
+            summary: "accessToken 재발급 API (개발중)",
             description: REFRESH_DESC,
             tags: [TAG_NAME],
             requestBody: {
@@ -134,7 +134,7 @@ const authPaths: OpenAPIV3.PathsObject = {
     },
     "/auth/logout": {
         post: {
-            summary: "로그아웃 (refreshToken 비활성화)",
+            summary: "로그아웃 (refreshToken 비활성화) (개발중)",
             description: ``,
             tags: [TAG_NAME],
             responses: {
@@ -153,6 +153,35 @@ const authPaths: OpenAPIV3.PathsObject = {
                 },
                 "401": {description: "Unauthorized"},
                 "404": {description: "Bad Request"},
+            }
+        }
+    },
+    "/auth/naver/callback": {
+        get: {
+            summary: "웹 네이버 로그인 callback API",
+            description: "기능 테스트를 위해 만든 임시 로그인, (웹 백엔드이기 때문에 사용할 일 없을 예정)",
+            tags: [TAG_NAME],
+            responses: {
+                "200": {
+                    description: "Success",
+                    content: {
+                        "application/json": {
+                            schema: {
+                                type: "object",
+                                properties: {
+                                    success: {type: "boolean", default: true},
+                                    data: {
+                                        type: "object",
+                                        properties: {
+                                            accessToken: {type: "string"},
+                                            refreshToken: {type: "string"},
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }

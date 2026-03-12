@@ -38,17 +38,17 @@ export const createUser = async (params: CreateUserParams): Promise<User> => {
                     data: [
                         {
                             id: ulid(),
-                            type: AccountType.DEFAULT,
+                            groupType: AccountType.DEFAULT,
                             currency: CurrencyCode.KRW,
                         },
                         {
                             id: ulid(),
-                            type: AccountType.DEPOSIT,
+                            groupType: AccountType.DEPOSIT,
                             currency: CurrencyCode.KRW,
                         },
                         {
                             id: ulid(),
-                            type: AccountType.INVESTMENT,
+                            groupType: AccountType.INVESTMENT,
                             currency: CurrencyCode.KRW,
                         },
                     ]

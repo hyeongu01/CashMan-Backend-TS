@@ -254,3 +254,180 @@
 {"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 15:14:26"}
 {"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 15:14:26"}
 {"level":"info","message":"server is running!","timestamp":"2026-03-12 15:14:26"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:39:13"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:39:13"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:39:13"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:39:13"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:39:29"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:39:29"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:39:29"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:39:29"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:39:43"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:39:43"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:39:43"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:39:43"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:40:58"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:40:58"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:40:58"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:40:58"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:43:21"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:43:21"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:43:21"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:43:21"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:43:28"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:43:28"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:43:28"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:43:28"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:44:53"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:44:53"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:44:53"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:44:53"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:45:34"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:45:34"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:45:34"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:45:34"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:46:45"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:46:45"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:46:45"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:46:45"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:47:54"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:47:54"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:47:54"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:47:54"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:48:18"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:48:18"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:48:18"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:48:18"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:48:44"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:48:44"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:48:44"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:48:44"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:49:25"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:49:25"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:49:25"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:49:25"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:51:10"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:51:10"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:51:10"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:51:10"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:54:37"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:54:37"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:54:37"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:54:37"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:54:49"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:54:49"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:54:49"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:54:49"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:56:19"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:56:19"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:56:19"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:56:19"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:56:50"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:56:50"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:56:50"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:56:50"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 16:57:13"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 16:57:14"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 16:57:14"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 16:57:14"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:02:24"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:02:24"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:02:24"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:02:24"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:04:31"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:04:31"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:04:31"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:04:31"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:06:10"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:06:10"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:06:10"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:06:10"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:07:20"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:07:20"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:07:20"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:07:20"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:08:15"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:08:15"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:08:15"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:08:15"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:08:31"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:08:31"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:08:31"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:08:31"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:08:59"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:08:59"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:08:59"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:08:59"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:09:18"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:09:18"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:09:18"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:09:18"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:09:43"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:09:43"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:09:43"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:09:43"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:10:25"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:10:25"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:10:25"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:10:25"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:10:51"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:10:51"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:10:51"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:10:51"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:11:35"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:11:35"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:11:35"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:11:35"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:12:18"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:12:18"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:12:18"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:12:18"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:13:08"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:13:09"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 17:13:09"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:13:09"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 17:14:35"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:14:35"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:14:35"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:14:35"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306[0m","timestamp":"2026-03-12 17:15:13"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:15:13"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:15:13"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:15:13"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306\u001b[0m","timestamp":"2026-03-12 17:15:35"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:15:35"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:15:35"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:15:35"}
+{"clientVersion":"7.4.2","code":"P2022","level":"error","meta":{"driverAdapterError":{"cause":{"column":"type","kind":"ColumnNotFound","originalCode":"1054","originalMessage":"Unknown column 'type' in 'field list'"},"name":"DriverAdapterError"},"modelName":"user"},"name":"PrismaClientKnownRequestError","timestamp":"2026-03-12 17:16:38"}
+{"clientVersion":"7.4.2","code":"P2022","level":"error","meta":{"driverAdapterError":{"cause":{"column":"type","kind":"ColumnNotFound","originalCode":"1054","originalMessage":"Unknown column 'type' in 'field list'"},"name":"DriverAdapterError"},"modelName":"user"},"name":"PrismaClientKnownRequestError","timestamp":"2026-03-12 17:16:59"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306\u001b[0m","timestamp":"2026-03-12 17:17:49"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:17:49"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:17:49"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:17:49"}
+{"clientVersion":"7.4.2","code":"P2022","level":"error","meta":{"driverAdapterError":{"cause":{"column":"type","kind":"ColumnNotFound","originalCode":"1054","originalMessage":"Unknown column 'type' in 'field list'"},"name":"DriverAdapterError"},"modelName":"user"},"name":"PrismaClientKnownRequestError","timestamp":"2026-03-12 17:17:57"}
+{"clientVersion":"7.4.2","code":"P2022","level":"error","meta":{"driverAdapterError":{"cause":{"column":"type","kind":"ColumnNotFound","originalCode":"1054","originalMessage":"Unknown column 'type' in 'field list'"},"name":"DriverAdapterError"},"modelName":"user"},"name":"PrismaClientKnownRequestError","timestamp":"2026-03-12 17:18:06"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306\u001b[0m","timestamp":"2026-03-12 17:19:07"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:19:07"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:19:07"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:19:07"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306\u001b[0m","timestamp":"2026-03-12 17:19:24"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:19:25"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:19:25"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:19:25"}
+{"clientVersion":"7.4.2","code":"P2022","level":"error","meta":{"driverAdapterError":{"cause":{"column":"type","kind":"ColumnNotFound","originalCode":"1054","originalMessage":"Unknown column 'type' in 'field list'"},"name":"DriverAdapterError"},"modelName":"user"},"name":"PrismaClientKnownRequestError","timestamp":"2026-03-12 17:19:28"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306\u001b[0m","timestamp":"2026-03-12 17:19:34"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:19:34"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:19:34"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:19:34"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306\u001b[0m","timestamp":"2026-03-12 17:20:19"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:20:19"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:20:19"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:20:19"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306\u001b[0m","timestamp":"2026-03-12 17:20:34"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:20:34"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:20:34"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:20:34"}
+{"level":"info","message":"[DB] Connecting to DB: \u001b[34mlocalhost:3306\u001b[0m","timestamp":"2026-03-12 17:20:59"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 17:20:59"}
+{"level":"info","message":"[redis] connecting to \u001b[34mredis://:@localhost:6379\u001b[0m","timestamp":"2026-03-12 17:20:59"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 17:20:59"}

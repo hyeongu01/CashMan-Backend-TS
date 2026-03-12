@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "target": "ES2023",
+    "baseUrl": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@features/*": ["src/features/*"],
+      "@generated/*": ["prisma/generated/*"],
+      "@libs/*": ["src/libs/*"],
+      "@common/*": ["src/common/*"]
+    },
+//    "typeRoots": ["./node_modules/@types", "./src/types"]
+  }
+}

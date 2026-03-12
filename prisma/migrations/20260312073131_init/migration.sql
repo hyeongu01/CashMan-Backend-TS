@@ -42,14 +42,14 @@ CREATE TABLE `user_auth` (
 -- CreateTable
 CREATE TABLE `account` (
     `id` CHAR(26) NOT NULL,
-    `type` TINYINT NOT NULL,
+    `groupType` TINYINT UNSIGNED NOT NULL,
     `user_id` CHAR(26) NOT NULL,
     `currency` CHAR(3) NOT NULL,
     `balance` BIGINT NOT NULL DEFAULT 0,
     `created_at` DATETIME(0) NOT NULL DEFAULT CURRENT_TIMESTAMP(0),
     `updated_at` DATETIME(0) NOT NULL,
 
-    UNIQUE INDEX `account_user_id_type_currency_key`(`user_id`, `type`, `currency`),
+    UNIQUE INDEX `account_user_id_groupType_currency_key`(`user_id`, `groupType`, `currency`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -57,7 +57,7 @@ CREATE TABLE `account` (
 CREATE TABLE `transaction` (
     `id` CHAR(26) NOT NULL,
     `user_id` CHAR(26) NOT NULL,
-    `group_type` TINYINT NOT NULL,
+    `group_type` TINYINT UNSIGNED NOT NULL,
     `category_id` CHAR(26) NOT NULL,
     `from_account_id` CHAR(26) NULL,
     `to_account_id` CHAR(26) NULL,
@@ -75,7 +75,7 @@ CREATE TABLE `transaction` (
 CREATE TABLE `category` (
     `id` CHAR(26) NOT NULL,
     `user_id` CHAR(26) NOT NULL,
-    `group_type` TINYINT NOT NULL,
+    `group_type` TINYINT UNSIGNED NOT NULL,
     `name` VARCHAR(50) NOT NULL,
 
     UNIQUE INDEX `category_user_id_name_group_type_key`(`user_id`, `name`, `group_type`),

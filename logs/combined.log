@@ -250,3 +250,7 @@
 {"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 13:02:25"}
 {"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 13:02:25"}
 {"level":"info","message":"server is running!","timestamp":"2026-03-12 13:02:25"}
+{"level":"info","message":"[DB] Connecting to DB: localhost:3306","timestamp":"2026-03-12 15:14:26"}
+{"level":"info","message":"[DB] Initialized DBModel","timestamp":"2026-03-12 15:14:26"}
+{"level":"info","message":"[redis] connecting to redis://:@localhost:6379","timestamp":"2026-03-12 15:14:26"}
+{"level":"info","message":"server is running!","timestamp":"2026-03-12 15:14:26"}

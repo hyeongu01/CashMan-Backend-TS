@@ -74,7 +74,7 @@ model user_auth {
 
 model account {
   id        String   @id @default(dbgenerated()) @db.Char(26)
-  type      Int      @db.TinyInt // 0: 기본 계좌, 1: 저축 계좌, 2: 투자 계좌
+  groupType Int      @db.UnsignedTinyInt // 0: 기본 계좌, 1: 저축 계좌, 2: 투자 계좌
   userId    String   @map("user_id") @db.Char(26)
   currency  String   @db.Char(3) // CURRENCY_CODE 따름
   balance   BigInt   @default(0) @db.BigInt
@@ -85,15 +85,14 @@ model account {
 
   outgoing_transactions transaction[] @relation("OutgoingTransactions")
   incoming_transactions transaction[] @relation("IncomingTransactions")
-  // @@index([userId])
 
-  @@unique([userId, type, currency])
+  @@unique([userId, groupType, currency])
 }
 
 model transaction {
   id              String   @id @default(dbgenerated()) @db.Char(26)
   userId          String   @map("user_id") @db.Char(26)
-  groupType       Int      @map("group_type") @db.TinyInt // 0: 수입, 1: 지출, 2: 저축, 3: 투자
+  type            Int      @map("group_type") @db.UnsignedTinyInt // 0: 수입, 1: 지출, 2: 저축 추가, 3: 저축 취소, 4: 투자 추가, 5: 투자 취소
   categoryId      String   @map("category_id") @db.Char(26)
   fromAccountId   String?  @map("from_account_id") @db.Char(26)
   toAccountId     String?  @map("to_account_id") @db.Char(26)
@@ -114,7 +113,7 @@ model transaction {
 model category {
   id        String @id @default(dbgenerated()) @db.Char(26)
   userId    String @map("user_id") @db.Char(26)
-  groupType Int    @map("group_type") @db.TinyInt // 0: 수입, 1: 지출, 2: 저축, 3: 투자
+  groupType Int    @map("group_type") @db.UnsignedTinyInt // 0: 기본 계좌, 1: 저축 계좌, 2: 투자 계좌
   name      String @db.VarChar(50)
 
   user user @relation(fields: [userId], references: [id])

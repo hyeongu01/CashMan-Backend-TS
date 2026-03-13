@@ -56,14 +56,15 @@ Router → Controller → Service → Repository → Prisma (DB)
 
 각 Feature 모듈은 `src/features/` 아래에 위치하며, 다음 파일들로 구성됩니다:
 
-| 파일 | 역할 |
-|------|------|
-| `*.router.ts` | 라우트 정의 |
-| `*.controller.ts` | 요청 처리 |
-| `*.service.ts` | 비즈니스 로직 |
+| 파일 | 역할              |
+|------|-----------------|
+| `*.router.ts` | 라우트 정의          |
+| `*.controller.ts` | 요청 처리           |
+| `*.service.ts` | 비즈니스 로직         |
 | `*.repository.ts` | 데이터 접근 (Prisma) |
-| `*.dto.ts` | AJV 기반 입출력 검증 |
-| `*.swagger.ts` | OpenAPI 문서 정의 |
+| `*.dto.ts` | AJV 기반 입출력 검증   |
+| `*.swagger.ts` | OpenAPI 문서 정의   |
+| `*.converter.ts` | 응답 형식 래퍼        |
 
 ## 실행 명령어
 

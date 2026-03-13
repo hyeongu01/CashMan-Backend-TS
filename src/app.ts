@@ -1,4 +1,5 @@
 import express from "express";
+import morgan from "morgan";
 import type {Request, Response, NextFunction} from "express";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "@libs/swagger";
@@ -10,6 +11,8 @@ import logger from "@libs/logger";
 const app = express();
 app.use(express.json());
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+app.use(morgan("dev", {stream: {write: (message) => logger.http(message.replace(/\x1b\[\d+m/g, '').trim())}}));
 
 app.use("/", router);
 

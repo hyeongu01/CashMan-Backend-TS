@@ -1,12 +1,23 @@
-import * as z from "zod";
+// import * as z from "zod";
+import {ajv, type JSONSchemaType, type ValidateFunction} from "@libs/ajv";
 
-// 네이버 로그인 서비스 파라메터 스키마
-export const NaverLoginParamsSchema = z.object({
-    code: z.string(),
-    state: z.string(),
-});
-// 네이버 로그인 서비스 파라메터 타입
-export type NaverLoginParams = z.infer<typeof NaverLoginParamsSchema>;
+
+// 네이버 로그인 서비스 파라메터
+export type NaverLoginParams = {
+    code: string,
+    state: string,
+}
+export const NaverLoginParamsSchema: JSONSchemaType<NaverLoginParams> = {
+    type: 'object',
+    properties: {
+        code: {type: "string"},
+        state: {type: "string"},
+    },
+    required: ["code", "state"],
+    additionalProperties: false,
+}
+export const validateNaverLoginParams: ValidateFunction<NaverLoginParams> = ajv.compile(NaverLoginParamsSchema);
+
 
 // 로그인 결과 response
 export type LoginResponse = {
@@ -14,29 +25,68 @@ export type LoginResponse = {
     refreshToken: string,
 }
 
-export const NaverProfileSchema = z.object({
-    id: z.string(),
-    name: z.string(),
-    birthday: z.string().optional(),    // MM-dd 형식
-    birthyear: z.string().optional(),   // yyyy 형식
-});
-export type NaverProfile = z.infer<typeof NaverProfileSchema>;
 
-export const LoginParamsSchema = z.object({
-    provider: z.string().uppercase(),
-    providerId: z.string(),
-    name: z.string(),
-    birthDate: z.date().optional(),
-});
-export type LoginParams = z.infer<typeof LoginParamsSchema>;
+// 네이버 프로필 스키마
+export type NaverProfile = {
+    id: string,
+    name: string,
+    birthday: string,
+    birthyear: string,
+}
+export const NaverProfileSchema: JSONSchemaType<NaverProfile> = {
+    type: 'object',
+    properties: {
+        id: {type: 'string'},
+        name: {type: 'string'},
+        birthday: {type: 'string'},
+        birthyear: {type: 'string'},
+    },
+    required: ["id", "name", "birthday", "birthyear"],
+}
+export const validateNaverProfile: ValidateFunction<NaverProfile> = ajv.compile(NaverProfileSchema);
+
+// 로그인 파라메터
+export type LoginParams = {
+    provider: string,
+    providerId: string,
+    name: string,
+    birthDate?: string,
+}
+export const LoginParamsSchema: JSONSchemaType<LoginParams> = {
+    type: 'object',
+    properties: {
+        provider: {type: 'string'},
+        providerId: {type: 'string'},
+        name: {type: 'string'},
+        birthDate: {
+            type: 'string',
+            format: "date",
+            nullable: true,
+        }
+    },
+    required: ["provider", "providerId", "name"],
+}
 
 
-export const CreateUserParamsSchema = z.object({
-    name: z.string(),
-    timezone: z.string().optional(),
-    currency: z.string().length(3).optional(),
-    birthDate: z.date().optional(),
-    provider: z.string().uppercase(),
-    providerId: z.string(),
-})
-export type CreateUserParams = z.infer<typeof CreateUserParamsSchema>;
+export type CreateUserParams = {
+    timezone?: string,
+    currency?: string,
+} & LoginParams;
+export const CreateUserParamsSchema: JSONSchemaType<CreateUserParams> = {
+    type: 'object',
+    properties: {
+        provider: {type: 'string'},
+        providerId: {type: 'string'},
+        name: {type: 'string'},
+        birthDate: {
+            type: 'string',
+            format: "date",
+            nullable: true,
+        },
+        timezone: {type: 'string', nullable: true},
+        currency: {type: 'string', nullable: true},
+    },
+    required: ["provider", "providerId", "name"],
+}
+
+

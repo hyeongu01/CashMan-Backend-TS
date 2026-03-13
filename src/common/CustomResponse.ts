@@ -1,4 +1,4 @@
-import * as z from "zod";
+import ajv, {type JSONSchemaType, type ValidateFunction} from "@libs/ajv";
 
 type CustomResponse = {
     success: true,
@@ -23,15 +23,35 @@ export const makeResponse = (params: MakeResponseParams): CustomResponse => {
     };
 }
 
-export const CustomErrorSchema = z.object({
-    statusCode: z.number().min(200).max(500),
-    success: z.boolean(),
-    error: z.object({
-        code: z.string(),
-        message: z.string(),
-    }),
-})
-export type CustomError = z.infer<typeof CustomErrorSchema>;
+
+export type CustomError = {
+    statusCode: number;
+    success: boolean;
+    error: {
+        code: string;
+        message: string;
+        detail?: object;
+    }
+}
+export const CustomErrorSchema: JSONSchemaType<CustomError> = {
+    type: 'object',
+    properties: {
+        statusCode: {type: 'number'},
+        success: {type: 'boolean'},
+        error: {
+            type: 'object',
+            properties: {
+                code: {type: 'string'},
+                message: {type: 'string'},
+                detail: {type: 'object', nullable: true}
+            },
+            required: ['code', 'message']
+        }
+    },
+    required: ["statusCode", "success", "error"],
+}
+export const validateCustomErrorSchema: ValidateFunction<CustomError> = ajv.compile(CustomErrorSchema);
+
 
 /**
  * 표준 에러 생성 코드

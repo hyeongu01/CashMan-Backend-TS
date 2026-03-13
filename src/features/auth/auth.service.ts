@@ -1,5 +1,10 @@
 import config from "@config/config";
-import {LoginParams, LoginResponse, NaverLoginParams, NaverProfile, NaverProfileSchema} from "@features/auth/auth.dto";
+import {
+    type NaverLoginParams,
+    type LoginResponse,
+    type LoginParams,
+    validateNaverProfile,
+} from "@features/auth/auth.dto";
 import {customError} from "@common/CustomResponse";
 import axios from "axios";
 import * as repository from "./auth.repository";
@@ -37,9 +42,8 @@ export const naverLogin = async (params: NaverLoginParams): Promise<LoginRespons
             Authorization: `${token_type} ${access_token}`,
         }
     });
-    const result = NaverProfileSchema.safeParse(profileResult.data.response);
-    if (!result.success) throw customError.SERVER_ERROR("네이버 프로필 조회 실패");
-    const profile: NaverProfile = result.data;
+    const profile = profileResult.data.response;
+    if (!validateNaverProfile(profile)) throw validateNaverProfile.errors;
 
     const loginParams: LoginParams = {
         providerId: profile.id,
@@ -47,7 +51,7 @@ export const naverLogin = async (params: NaverLoginParams): Promise<LoginRespons
         name: profile.name,
         birthDate: (() => {
             const date = new Date(`${profile.birthyear}-${profile.birthday}`);
-            return isNaN(date.getTime()) ? undefined : date
+            return isNaN(date.getTime()) ? undefined : date.toISOString().split("T")[0]
         })()
     };
 

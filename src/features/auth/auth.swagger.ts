@@ -134,9 +134,23 @@ const authPaths: OpenAPIV3.PathsObject = {
     },
     "/auth/logout": {
         post: {
-            summary: "로그아웃 (refreshToken 비활성화) (개발중)",
+            summary: "로그아웃 (refreshToken 비활성화)",
             description: ``,
             tags: [TAG_NAME],
+            security: [{BearerAuth: []}],
+            requestBody: {
+                content: {
+                    'application/json': {
+                        schema: {
+                            type: "object",
+                            properties: {
+                                refreshToken: {type: "string"},
+                            },
+                            required: ["refreshToken"],
+                        }
+                    }
+                }
+            },
             responses: {
                 "200": {
                     description: "Success",
@@ -152,7 +166,7 @@ const authPaths: OpenAPIV3.PathsObject = {
                     }
                 },
                 "401": {description: "Unauthorized"},
-                "404": {description: "Bad Request"},
+                "404": {description: "refreshToken is required"},
             }
         }
     },

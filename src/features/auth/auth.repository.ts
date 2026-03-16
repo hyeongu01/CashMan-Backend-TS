@@ -69,3 +69,16 @@ export const createRefreshToken = async (userId: string, token: string, deviceId
         }
     })
 }
+
+export const logoutUser = async (params: {userId: string, hashedToken: string, deviceId: string}) => {
+    const {hashedToken: token, ...body} = params;
+    await prismaClient.refresh_token.update({
+        where: {
+            userId_deviceId: body,
+            token,
+        },
+        data: {
+            revokedAt: new Date(Date.now())
+        }
+    })
+}

@@ -1,5 +1,4 @@
-import {Request} from "express";
-import {User} from "@features/users/users.dto";
+import {user} from "@generated/prisma/client";
 
 export const AuthProvider = {
     NAVER: "NAVER",
@@ -19,6 +18,11 @@ export const AccountType = {
     INVESTMENT: 2
 }
 
-export interface AuthRequest extends Request {
-    user: User;
+
+
+declare global {
+    namespace Express {
+        interface User extends user {}
+    }
 }
+

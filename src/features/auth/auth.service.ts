@@ -10,9 +10,10 @@ import axios from "axios";
 import * as repository from "./auth.repository";
 import {AuthProvider} from "@common/type";
 import {User} from "@features/users/users.dto";
-import { encodeJWT } from "@common/auth/jwt";
+import {decodeJWT, encodeJWT} from "@common/auth/jwt";
 import {ulid} from "ulid";
 import {createHash} from "crypto";
+import prismaClient from "@config/db.config";
 
 export const naverLogin = async (params: NaverLoginParams): Promise<LoginResponse> => {
     // code, state 분리
@@ -70,5 +71,17 @@ async function login(params: LoginParams): Promise<LoginResponse> {
 
     await repository.createRefreshToken(user.id, hashedRefreshToken, deviceId);
     return tokens;
+}
+
+export const logout = async (user: User, params: {refreshToken: string}): Promise<void> => {
+    const decoded = decodeJWT(params.refreshToken, false);
+    if (!decoded?.deviceId) throw customError.UNAUTHORIZED("invalid refreshToken");
+    if (user.id !== decoded.id) throw customError.UNAUTHORIZED("일치하지 않는 유저.");
+
+    const hashedToken = createHash("sha256")
+        .update(params.refreshToken)
+        .digest('hex');
+
+    await repository.logoutUser({userId: user.id, hashedToken, deviceId: decoded.deviceId});
 }
 

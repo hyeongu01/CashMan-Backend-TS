@@ -1,7 +1,9 @@
 import type {Request, Response} from "express";
-import {makeResponse} from "@common/CustomResponse";
+import {customError, makeResponse} from "@common/CustomResponse";
 import * as service from "./auth.service";
 import {validateNaverLoginParams} from "@features/auth/auth.dto";
+import {User} from "@features/users/users.dto";
+import {decodeJWT} from "@common/auth/jwt";
 
 export const naverLogin = async (req: Request, res: Response) => {
     const params = req.query;
@@ -10,3 +12,15 @@ export const naverLogin = async (req: Request, res: Response) => {
     const data = await service.naverLogin(params);
     return res.status(200).json(makeResponse({data}));
 };
+
+export const logout = async (req: Request, res: Response) => {
+    const user = req.user;
+    const {refreshToken} = req.body;
+
+    if (!refreshToken) throw customError.BAD_REQUEST("refreshToken is required");
+    if (!user) throw customError.UNAUTHORIZED();
+
+    await service.logout(user, {refreshToken});
+
+    return res.status(200).end();
+}

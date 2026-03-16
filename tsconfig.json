@@ -14,6 +14,6 @@
       "@libs/*": ["src/libs/*"],
       "@common/*": ["src/common/*"]
     },
-//    "typeRoots": ["./node_modules/@types", "./src/types"]
+    "typeRoots": ["./node_modules/@types", "./src/common/type.ts"]
   }
 }

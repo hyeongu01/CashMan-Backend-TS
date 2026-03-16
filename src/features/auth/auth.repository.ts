@@ -5,9 +5,6 @@ import {ulid} from "ulid"
 import {AccountType, CurrencyCode} from "@common/type";
 import config from "@config/config";
 
-export const getUserById = async (id: string): Promise<User | null> => {
-    return prismaClient.user.findUnique({where: {id: id, deletedAt: null}});
-}
 
 export const getUserByProvider = async (provider: string, providerId: string): Promise<User | null> => {
     const result = await prismaClient.user_auth.findFirst({

@@ -7,6 +7,7 @@ import router from "./features";
 import {CustomErrorSchema, customError, validateCustomErrorSchema} from "@common/CustomResponse";
 import logger from "@libs/logger";
 import {validateNaverLoginParams} from "@features/auth/auth.dto";
+import {Prisma} from "@generated/prisma/client";
 
 
 const app = express();
@@ -35,6 +36,11 @@ app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
         }));
         const { statusCode, ...body } = customError.BAD_REQUEST('Validation failed');
         body.error.detail = details;
+        return res.status(statusCode).json(body);
+    }
+    if (err instanceof Prisma.PrismaClientKnownRequestError) {
+        logger.error(`[Prisma] ${err.code}: ${err.message}`);
+        const { statusCode, ...body } = customError.SERVER_ERROR();
         return res.status(statusCode).json(body);
     }
 

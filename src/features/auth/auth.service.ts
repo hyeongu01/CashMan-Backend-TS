@@ -8,6 +8,7 @@ import {
 import {customError} from "@common/CustomResponse";
 import axios from "axios";
 import * as repository from "./auth.repository";
+import {getUserById} from "@features/users/users.repository";
 import {AuthProvider} from "@common/type";
 import {User} from "@features/users/users.dto";
 import {decodeJWT, encodeJWT} from "@common/auth/jwt";
@@ -89,7 +90,7 @@ export const refresh = async (params: {refreshToken: string}): Promise<LoginResp
     const decoded = decodeJWT(params.refreshToken, false);
     if (!decoded?.deviceId) throw customError.UNAUTHORIZED("invalid refreshToken");
 
-    const user: User | null = await repository.getUserById(decoded.id);
+    const user: User | null = await getUserById(decoded.id);
     if (!user) throw customError.UNAUTHORIZED("invalid user");
 
     const tokens = encodeJWT(user.id, decoded.deviceId);

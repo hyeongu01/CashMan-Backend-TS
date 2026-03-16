@@ -49,7 +49,7 @@ const usersPaths: OpenAPIV3.PathsObject = {
             }
         },
         patch: {
-            summary: "내 정보 부분 수정 (개발중)",
+            summary: "내 정보 부분 수정",
             tags: [TAG_NAME],
             security: [{BearerAuth: []}],
             requestBody: {
@@ -103,7 +103,11 @@ const usersPaths: OpenAPIV3.PathsObject = {
                             }
                         }
                     }
-                }
+                },
+                "400": {description: "request body invalid"},
+                "401": {description: "UNAUTHORIZED"},
+                "404": {description: "user not found"},
+                "500": {description: "Server Error"},
             }
         },
         delete: {

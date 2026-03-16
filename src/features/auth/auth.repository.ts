@@ -22,11 +22,12 @@ export const getUserByProvider = async (provider: string, providerId: string): P
 }
 
 export const createUser = async (params: CreateUserParams): Promise<User> => {
-    const {provider, providerId, ...body} = params;
+    const {provider, providerId, birthDate, ...body} = params;
     return prismaClient.user.create({
         data: {
             id: ulid(),
             ...body,
+            birthDate: birthDate ? new Date(birthDate) : undefined,
             auths: {
                 create: {
                     provider,
@@ -39,17 +40,17 @@ export const createUser = async (params: CreateUserParams): Promise<User> => {
                         {
                             id: ulid(),
                             groupType: AccountType.DEFAULT,
-                            currency: CurrencyCode.KRW,
+                            currency: body.currency ?? CurrencyCode.KRW,
                         },
                         {
                             id: ulid(),
                             groupType: AccountType.DEPOSIT,
-                            currency: CurrencyCode.KRW,
+                            currency: body.currency ?? CurrencyCode.KRW,
                         },
                         {
                             id: ulid(),
                             groupType: AccountType.INVESTMENT,
-                            currency: CurrencyCode.KRW,
+                            currency: body.currency ?? CurrencyCode.KRW,
                         },
                     ]
                 }

@@ -1,5 +1,5 @@
 import {user} from "@generated/prisma/client";
-import {JSONSchemaType} from "ajv";
+import {JSONSchemaType, ajv, ValidateFunction} from "@libs/ajv";
 // import * as z from "zod";
 
 export type User = user;
@@ -30,3 +30,4 @@ export const UpdateUserParamsSchema: JSONSchemaType<UpdateUserParams> = {
         },
     }
 }
+export const validateUpdateUserParamsSchema: ValidateFunction<UpdateUserParams> = ajv.compile(UpdateUserParamsSchema);

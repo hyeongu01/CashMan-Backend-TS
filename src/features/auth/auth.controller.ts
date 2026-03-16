@@ -24,3 +24,11 @@ export const logout = async (req: Request, res: Response) => {
 
     return res.status(200).end();
 }
+
+export const refresh = async (req: Request, res: Response) => {
+    const {refreshToken} = req.body;
+    if (!refreshToken) throw customError.BAD_REQUEST("refreshToken is required");
+
+    const data = await service.refresh({refreshToken});
+    return res.status(200).json(makeResponse({data}));
+}

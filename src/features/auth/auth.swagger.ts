@@ -90,7 +90,7 @@ const authPaths: OpenAPIV3.PathsObject = {
     },
     "/auth/refresh": {
         post: {
-            summary: "accessToken 재발급 API (개발중)",
+            summary: "accessToken 재발급 API",
             description: REFRESH_DESC,
             tags: [TAG_NAME],
             requestBody: {
@@ -128,7 +128,9 @@ const authPaths: OpenAPIV3.PathsObject = {
                         }
                     }
                 },
-                "404": {description: "Bad Request"},
+                "401": {description: "invalid refreshToken"},
+                "404": {description: "refreshToken is required"},
+                "500": {description: "Server Error"},
             }
         }
     },

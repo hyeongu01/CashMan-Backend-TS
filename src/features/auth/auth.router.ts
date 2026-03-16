@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get("/naver/callback", controller.naverLogin);       // 없앨 예정
 // router.post("/login")
-// router.post("/refresh")
-router.post("/logout", authJwt, controller.logout)
+router.post("/refresh", controller.refresh);
+router.post("/logout", authJwt, controller.logout);
 
 export default router;

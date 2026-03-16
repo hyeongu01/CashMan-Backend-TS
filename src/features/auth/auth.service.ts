@@ -85,3 +85,19 @@ export const logout = async (user: User, params: {refreshToken: string}): Promis
     await repository.logoutUser({userId: user.id, hashedToken, deviceId: decoded.deviceId});
 }
 
+export const refresh = async (params: {refreshToken: string}): Promise<LoginResponse> => {
+    const decoded = decodeJWT(params.refreshToken, false);
+    if (!decoded?.deviceId) throw customError.UNAUTHORIZED("invalid refreshToken");
+
+    const user: User | null = await repository.getUserById(decoded.id);
+    if (!user) throw customError.UNAUTHORIZED("invalid user");
+
+    const tokens = encodeJWT(user.id, decoded.deviceId);
+
+    const hashedRefreshToken = createHash("sha256")
+        .update(tokens.refreshToken)
+        .digest("hex");
+    await repository.createRefreshToken(user.id, hashedRefreshToken, decoded.deviceId);
+    return tokens;
+}
+

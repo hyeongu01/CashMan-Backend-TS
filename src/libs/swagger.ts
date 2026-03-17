@@ -24,8 +24,8 @@ export const swaggerSpec: OpenAPIV3.Document = {
         {name: "01. Auth"},
         {name: "02. Users"},
         {name: "03. Accounts"},
-        {name: "04. Transactions"},
-        {name: "05. Categories"},
+        {name: "04. Categories"},
+        {name: "05. Transactions"},
         {name: "99. Test"},
     ],
     info: {

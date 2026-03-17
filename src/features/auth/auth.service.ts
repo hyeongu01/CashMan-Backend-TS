@@ -63,7 +63,7 @@ export const naverLogin = async (params: NaverLoginParams): Promise<LoginRespons
     return await login(loginParams);
 }
 
-async function login(params: LoginParams): Promise<LoginResponse> {
+export async function login(params: LoginParams): Promise<LoginResponse> {
     const result: User | null = await repository.getUserByProvider(params.provider, params.providerId);
     const user: User = result ? result : await repository.createUser(params);
 

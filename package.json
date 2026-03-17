@@ -5,11 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec tsx src/server.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest --ui"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hyeongu01/TS-Express-Prisma-Backend-Architecture.git"
+  },
+  "engines": {
+    "node": ">=20"
   },
   "keywords": [],
   "author": "hyeonwoo choi",
@@ -47,9 +50,11 @@
     "@types/passport": "^1.0.17",
     "@types/passport-jwt": "^4.0.1",
     "@types/swagger-ui-express": "^4.1.8",
+    "@vitest/ui": "^4.1.0",
     "nodemon": "^3.1.14",
     "prisma": "^7.4.2",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.0"
   }
 }

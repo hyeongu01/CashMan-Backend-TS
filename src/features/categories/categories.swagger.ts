@@ -51,7 +51,7 @@ const PATCH_CATEGORY_DESC = `
 `
 
 
-const authPaths: OpenAPIV3.PathsObject = {
+const categoriesPaths: OpenAPIV3.PathsObject = {
     "/categories": {
         post: {
             summary: "카테고리 생성",
@@ -238,4 +238,4 @@ const authPaths: OpenAPIV3.PathsObject = {
     }
 }
 
-export default authPaths;
+export default categoriesPaths;

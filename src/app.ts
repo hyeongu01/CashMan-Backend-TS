@@ -8,7 +8,6 @@ import {customError, validateCustomErrorSchema} from "@common/CustomResponse";
 import logger from "@libs/logger";
 import {Prisma} from "@generated/prisma/client";
 import cors from "cors";
-import {SwaggerTheme, SwaggerThemeNameEnum} from "swagger-themes";
 
 
 const app = express();
@@ -18,10 +17,7 @@ app.use(cors({
 }));
 
 app.use(express.json());
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec, {
-    isExplorer: true,
-    customCss: new SwaggerTheme().getBuffer(SwaggerThemeNameEnum.OUTLINE),
-}));
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get("/api-docs", (_req: Request, res: Response) => {
     return res.status(200).json(swaggerSpec);
 })

@@ -2,6 +2,7 @@ import {initializeDBModel} from "@libs/model";
 import logger from "@libs/logger";
 import app from "./app";
 import redisClient from "@libs/redis";
+import {PrismaClientKnownRequestError} from "@prisma/client/runtime/client";
 
 async function main() {
     try {
@@ -12,7 +13,8 @@ async function main() {
             logger.info(`server is running!`);
         })
     } catch (error) {
-        logger.error(error);
+        if (error instanceof PrismaClientKnownRequestError) logger.error(`[prisma] ${error.message}`);
+        else logger.error(error);
         process.exit(1);
     }
 }

@@ -37,6 +37,7 @@
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "redis": "^5.11.0",
+    "swagger-themes": "^1.4.3",
     "swagger-ui-express": "^5.0.1",
     "ulid": "^3.0.2",
     "winston": "^3.19.0"

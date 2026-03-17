@@ -21,3 +21,11 @@ export async function updateMyProfile(req: Request, res: Response): Promise<any>
 
     return res.status(200).json(makeResponse({data}));
 }
+
+export async function deleteMyProfile(req: Request, res: Response): Promise<any> {
+    const user = req.user;
+    if (!user) throw customError.UNAUTHORIZED();
+
+    await repository.softDeleteUser(user.id);
+    return res.status(200).json(makeResponse({}));
+}

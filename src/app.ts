@@ -4,13 +4,18 @@ import type {Request, Response, NextFunction} from "express";
 import swaggerUi from "swagger-ui-express";
 import swaggerSpec from "@libs/swagger";
 import router from "./features";
-import {CustomErrorSchema, customError, validateCustomErrorSchema} from "@common/CustomResponse";
+import {customError, validateCustomErrorSchema} from "@common/CustomResponse";
 import logger from "@libs/logger";
-import {validateNaverLoginParams} from "@features/auth/auth.dto";
 import {Prisma} from "@generated/prisma/client";
+import cors from "cors";
 
 
 const app = express();
+app.use(cors({
+    origin: "*",
+    allowedHeaders: ["*"]
+}));
+
 app.use(express.json());
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

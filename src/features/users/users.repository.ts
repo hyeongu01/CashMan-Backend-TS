@@ -23,3 +23,12 @@ export async function updateUser(user: User, params: UpdateUserParams): Promise<
         })
     })
 }
+
+export async function softDeleteUser(id: string): Promise<User> {
+    return prismaClient.user.update({
+        where: {id},
+        data: {
+            deletedAt: new Date(),
+        }
+    })
+}

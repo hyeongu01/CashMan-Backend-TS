@@ -111,7 +111,7 @@ const usersPaths: OpenAPIV3.PathsObject = {
             }
         },
         delete: {
-            summary: "내 정보 소프트 딜리트 (개발중)",
+            summary: "내 정보 소프트 딜리트",
             tags: [TAG_NAME],
             security: [{BearerAuth: []}],
             responses: {
@@ -128,6 +128,7 @@ const usersPaths: OpenAPIV3.PathsObject = {
                         }
                     }
                 },
+                "401": {description: "UNAUTHORIZED"},
                 "500": {description: "Server Error"},
             }
         }

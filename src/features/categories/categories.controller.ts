@@ -16,3 +16,21 @@ export async function createCategory(req: Request, res: Response): Promise<any> 
     const data: Category = await repository.createCategory(user.id, params);
     return res.status(200).json(makeResponse({data}));
 }
+
+export async function getMyCategories(req: Request, res: Response): Promise<any> {
+    const user = req.user;
+    const raw = req.query.groupType;
+    const groupType: number | undefined = typeof raw === "string" && raw !== "" ? Number(raw) : undefined;
+
+    if (!user) throw customError.UNAUTHORIZED();
+    if (Number.isNaN(groupType)) throw customError.BAD_REQUEST();
+
+    const data: Category[] = await repository.findCategories(user.id, groupType);
+    return res.status(200).json(makeResponse({
+        data,
+        meta: {
+            count: data.length,
+            groupType: groupType === undefined ? undefined : groupType,
+        }
+    }));
+}

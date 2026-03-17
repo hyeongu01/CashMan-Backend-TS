@@ -12,3 +12,16 @@ export async function createCategory(userId: string, params: CreateCategoryReque
     })
 }
 
+export async function findCategories(userId: string, groupType?: number): Promise<Category[]> {
+    return prismaClient.category.findMany({
+        where: {
+            userId,
+            groupType: groupType,
+        },
+        orderBy: [
+            {groupType: 'asc'},
+            {name: "asc"}
+        ]
+    })
+}
+

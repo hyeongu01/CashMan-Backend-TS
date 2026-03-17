@@ -45,6 +45,7 @@ const authPaths: OpenAPIV3.PathsObject = {
             summary: "로그인 API (개발중)",
             description: LOGIN_DESC,
             tags: [TAG_NAME],
+            deprecated: true,
             // requestBody: {
             //     required: true,
             //     content: {

@@ -17,6 +17,6 @@ export const CreateCategoryRequestBodySchema: JSONSchemaType<CreateCategoryReque
     },
     required: ['name', 'groupType']
 }
-export const validateCreateCategoryRequestBody: ValidateFunction =
+export const validateCreateCategoryRequestBody: ValidateFunction<CreateCategoryRequestBody> =
     ajv.compile(CreateCategoryRequestBodySchema);
 

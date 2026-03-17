@@ -1,8 +1,7 @@
 import type {Response, Request} from "express";
 import {customError, makeResponse} from "@common/CustomResponse";
 import {
-    Category,
-    CreateCategoryRequestBody,
+    type Category,
     validateCreateCategoryRequestBody
 } from "@features/categories/categories.dto";
 import * as repository from "./categories.repository";

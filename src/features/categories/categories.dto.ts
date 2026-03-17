@@ -20,3 +20,25 @@ export const CreateCategoryRequestBodySchema: JSONSchemaType<CreateCategoryReque
 export const validateCreateCategoryRequestBody: ValidateFunction<CreateCategoryRequestBody> =
     ajv.compile(CreateCategoryRequestBodySchema);
 
+
+export type UpdateCategoryParams = Partial<Pick<
+    Category, "name" | "groupType">>;
+export const UpdateCategoryParamsSchema: JSONSchemaType<UpdateCategoryParams> = {
+    type: "object",
+    properties: {
+        name: {
+            type: "string",
+            maxLength: 50,
+            nullable: true,
+        },
+        groupType: {
+            type: 'number',
+            maximum: 2,
+            minimum: 0,
+            nullable: true,
+        }
+    }
+}
+export const validateUpdateCategoryParams: ValidateFunction<UpdateCategoryParams> =
+    ajv.compile(UpdateCategoryParamsSchema);
+

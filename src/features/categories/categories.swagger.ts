@@ -35,6 +35,21 @@ const GET_CATEGORY_DESC = `
   2. name: "asc
 `
 
+const PATCH_CATEGORY_DESC = `
+  카테고리 수정
+  
+  **request - body**
+  - name
+  - groupType
+  
+  **request - path**
+  - categoryId
+  
+  **response**
+  - data: 업데이트된 Category.
+
+`
+
 
 const authPaths: OpenAPIV3.PathsObject = {
     "/categories": {
@@ -134,45 +149,90 @@ const authPaths: OpenAPIV3.PathsObject = {
                 "500": {description: "Server Error"},
             }
         },
-        delete: {
-            summary: "내 카테고리 삭제",
-            deprecated: true,
-            description: ``,
-            tags: [TAG_NAME],
-            security: [{BearerAuth: []}],
-            responses: {
-                "200": {description: "success"},
-                "401": {description: "Unauthorized"},
-                "500": {description: "Server Error"},
-            }
-
-        },
+    },
+    "/categories/{categoryId}": {
         patch: {
+            // deprecated: true,
             summary: "내 카테고리 수정",
-            deprecated: true,
-            description: ``,
+            description: PATCH_CATEGORY_DESC,
             tags: [TAG_NAME],
             security: [{BearerAuth: []}],
+            parameters: [
+                {
+                    name: "categoryId",
+                    in: "path",
+                    required: true,
+                    schema: {
+                        type: "string",
+                    }
+                }
+            ],
             requestBody: {
                 content: {
                     'application/json': {
                         schema: {
                             type: "object",
                             properties: {
-                                name: {type: "string"},
+                                name: {type: "string", nullable: true},
+                                groupType: {type: "integer", nullable: true},
                             },
-                            required: ["name"],
                         }
                     }
                 }
             },
             responses: {
+                "200": {
+                    description: "success",
+                    content: {
+                        'application/json': {
+                            schema: {
+                                type: "object",
+                                properties: {
+                                    success: {type: "boolean"},
+                                    data: {
+                                        type: "object",
+                                        properties: {
+                                            id: {type: "string"},
+                                            userId: {type: "string"},
+                                            groupType: {type: "integer"},
+                                            name: {type: "string"},
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "400": {description: "Bad Request"},
+                "401": {description: "Unauthorized"},
+                "403": {description: "Forbidden"},
+                "404": {description: "Not Found"},
+                "409": {description: "overlapping category"},
+                "500": {description: "Server Error"},
+            }
+        },
+        delete: {
+            summary: "내 카테고리 삭제",
+            deprecated: true,
+            description: ``,
+            tags: [TAG_NAME],
+            security: [{BearerAuth: []}],
+            parameters: [
+                {
+                    name: "categoryId",
+                    in: "path",
+                    required: true,
+                    schema: {
+                        type: "string",
+                    }
+                }
+            ],
+            responses: {
                 "200": {description: "success"},
                 "401": {description: "Unauthorized"},
                 "500": {description: "Server Error"},
             }
-
-        }
+        },
     }
 }
 

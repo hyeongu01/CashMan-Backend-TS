@@ -77,5 +77,7 @@ export const customError = {
     BAD_REQUEST: makeError(400, "BAD_REQUEST"),
     NOT_FOUND: makeError(404, "NOT_FOUND"),
     SERVER_ERROR: makeError(500, "SERVER_ERROR"),
+    FORBIDDEN: makeError(403, "FORBIDDEN"),
+    CONFLICT: makeError(409, "CONFLICT"),
 
 } as const;

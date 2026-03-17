@@ -15,6 +15,7 @@ const sharedResolve = {
 export default defineConfig({
     resolve: sharedResolve,
     test: {
+        setupFiles: ["./src/common/type.ts"],
         env: {
         }
     }

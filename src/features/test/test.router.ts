@@ -9,8 +9,7 @@ const router = Router();
 
 // login
 router.get('/naver/login', async (req: Request, res: Response, next: NextFunction) => {
-    const api_url = generateNaverLoginURL();
-    if (!api_url) throw customError.SERVER_ERROR();
+    const api_url = await generateNaverLoginURL();
 
     return res.end("<a href='"+ api_url + "'><img height='50' src='http://static.nid.naver.com/oauth/small_g_in.PNG'/></a>");
 })

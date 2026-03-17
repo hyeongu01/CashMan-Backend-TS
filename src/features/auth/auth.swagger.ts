@@ -174,7 +174,7 @@ const authPaths: OpenAPIV3.PathsObject = {
     },
     "/auth/naver/callback": {
         get: {
-            summary: "웹 네이버 로그인 callback API",
+            summary: "웹 네이버 로그인 callback API (web)",
             description: "기능 테스트를 위해 만든 임시 로그인, (웹 백엔드이기 때문에 사용할 일 없을 예정)",
             tags: [TAG_NAME],
             responses: {
@@ -198,6 +198,16 @@ const authPaths: OpenAPIV3.PathsObject = {
                         }
                     }
                 }
+            }
+        }
+    },
+    "/auth/naver/login": {
+        get: {
+            summary: "네이버 소셜 로그인 리다이렉트 (web)",
+            description: "네이버 소셜 로그인 리다이렉트 (web)",
+            tags: [TAG_NAME],
+            responses: {
+                "302": {description: "네이버 로그인 페이지로 리다이렉트",}
             }
         }
     }

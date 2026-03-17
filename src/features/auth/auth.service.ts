@@ -15,6 +15,7 @@ import {decodeJWT, encodeJWT} from "@common/auth/jwt";
 import {ulid} from "ulid";
 import {createHash} from "crypto";
 import prismaClient from "@config/db.config";
+import redis from "@libs/redis";
 
 export const naverLogin = async (params: NaverLoginParams): Promise<LoginResponse> => {
     // code, state 분리
@@ -23,6 +24,8 @@ export const naverLogin = async (params: NaverLoginParams): Promise<LoginRespons
     if (!config.naver) throw customError.SERVER_ERROR();
 
     // redis 에서 state 검증하는 코드 추가
+    const exists = await redis.del(`naverLoginState:${state}`);
+    if (!exists) throw customError.UNAUTHORIZED("state is not valid");
 
     // access_token 발급 (네이버 서버 jwt)
     const tokenResult = await axios.get("https://nid.naver.com/oauth2.0/token", {

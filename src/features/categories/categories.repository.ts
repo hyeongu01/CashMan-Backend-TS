@@ -51,3 +51,9 @@ export async function updateCategory(categoryId: string, params: UpdateCategoryP
     })
 }
 
+export async function deleteCategory(categoryId: string): Promise<void> {
+    await prismaClient.category.delete({
+        where: {id: categoryId}
+    })
+}
+

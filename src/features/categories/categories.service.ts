@@ -17,3 +17,13 @@ export async function updateCategory(user: User, categoryId: string, params: Upd
 
     return repository.updateCategory(categoryId, params);
 }
+
+export async function deleteCategory(user: User, categoryId: string): Promise<void> {
+    const oldCategory: Category | null = await repository.findCategoryById(categoryId);
+
+    if (!oldCategory) return;
+    if (user.id !== oldCategory.userId) throw customError.FORBIDDEN();
+
+    await repository.deleteCategory(categoryId);
+}
+

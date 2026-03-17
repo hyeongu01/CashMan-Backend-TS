@@ -213,7 +213,7 @@ const authPaths: OpenAPIV3.PathsObject = {
         },
         delete: {
             summary: "내 카테고리 삭제",
-            deprecated: true,
+            // deprecated: true,
             description: ``,
             tags: [TAG_NAME],
             security: [{BearerAuth: []}],
@@ -229,7 +229,9 @@ const authPaths: OpenAPIV3.PathsObject = {
             ],
             responses: {
                 "200": {description: "success"},
+                "400": {description: "Bad Request"},
                 "401": {description: "Unauthorized"},
+                "403": {description: "Forbidden"},
                 "500": {description: "Server Error"},
             }
         },

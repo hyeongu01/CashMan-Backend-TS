@@ -93,7 +93,7 @@ model transaction {
   id              String   @id @default(dbgenerated()) @db.Char(26)
   userId          String   @map("user_id") @db.Char(26)
   type            Int      @map("type") @db.UnsignedTinyInt // 0: 수입, 1: 지출, 2: 저축 추가, 3: 저축 취소, 4: 투자 추가, 5: 투자 취소
-  categoryId      String   @map("category_id") @db.Char(26)
+  categoryId      String?  @map("category_id") @db.Char(26)
   fromAccountId   String?  @map("from_account_id") @db.Char(26)
   toAccountId     String?  @map("to_account_id") @db.Char(26)
   amount          BigInt   @db.BigInt
@@ -102,10 +102,10 @@ model transaction {
   createdAt       DateTime @default(now()) @map("created_at") @db.DateTime(0)
   updatedAt       DateTime @updatedAt @map("updated_at") @db.DateTime(0)
 
-  user         user     @relation(fields: [userId], references: [id])
-  category     category @relation(fields: [categoryId], references: [id])
-  from_account account? @relation("OutgoingTransactions", fields: [fromAccountId], references: [id])
-  to_account   account? @relation("IncomingTransactions", fields: [toAccountId], references: [id])
+  user         user      @relation(fields: [userId], references: [id])
+  category     category? @relation(fields: [categoryId], references: [id])
+  from_account account?  @relation("OutgoingTransactions", fields: [fromAccountId], references: [id])
+  to_account   account?  @relation("IncomingTransactions", fields: [toAccountId], references: [id])
 
   @@index([userId, transactionDate])
 }

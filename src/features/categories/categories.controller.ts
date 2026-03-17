@@ -49,3 +49,15 @@ export async function updateCategory(req: Request, res: Response): Promise<any> 
     const data: Category = await service.updateCategory(user, categoryId, params);
     return res.status(200).json(makeResponse({data}));
 }
+
+export async function deleteCategory(req: Request, res: Response): Promise<any> {
+    const user = req.user;
+    const {categoryId} = req.params;
+
+    if (!user) throw customError.UNAUTHORIZED();
+    if (categoryId === undefined || typeof categoryId !== "string")
+        throw customError.BAD_REQUEST();
+
+    await service.deleteCategory(user, categoryId);
+    return res.status(200).json(makeResponse({}));
+}

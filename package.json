@@ -7,7 +7,8 @@
     "dev": "nodemon --exec tsx src/server.ts",
     "build": "tsc && tsc-alias --resolve-full-paths",
     "start": "node dist/src/server.js",
-    "test": "vitest --ui"
+    "test": "vitest",
+    "test:run": "vitest run"
   },
   "repository": {
     "type": "git",

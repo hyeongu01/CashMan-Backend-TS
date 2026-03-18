@@ -24,7 +24,7 @@ export async function createTransaction(req: Request, res: Response): Promise<an
 export async function findAllMyTransactions(req: Request, res: Response): Promise<any> {
     const user = req.user;
     const paginationParams = req.query;
-    paginationParams.order = typeof paginationParams.order === "string" ? paginationParams.order.toLowerCase() : undefined;
+    paginationParams.order = typeof paginationParams.order === "string" ? paginationParams.order.toLowerCase() : paginationParams.order;
     paginationParams.page = paginationParams.page ?? "1";
     paginationParams.limit = paginationParams.limit ?? "10";
     paginationParams.orderBy = paginationParams.orderBy ?? "transactionDate";

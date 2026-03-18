@@ -27,15 +27,13 @@ export async function createTransaction(user: User, params: CreateTransactionPar
 export async function findAllMyTransactions(user: User, params: TransactionPaginationParams): Promise<any> {
     const {categoryId, fromAccountId, toAccountId} = params;
 
-
-
     const category = categoryId ? await findCategoryById(categoryId) : null;
     const fromAccount = fromAccountId ? await getAccountById(fromAccountId) : null;
     const toAccount = toAccountId ? await getAccountById(toAccountId) : null;
 
-    if (categoryId && !category) return [];
-    if (fromAccountId && !fromAccount) return [];
-    if (toAccountId && !toAccount) return [];
+    if (categoryId && !category) throw customError.NOT_FOUND("category not found");
+    if (fromAccountId && !fromAccount) throw customError.NOT_FOUND("fromAccount not found");
+    if (toAccountId && !toAccount) throw customError.NOT_FOUND("toAccount not found");
 
     const [data, totalCount]: [Transaction<["category"]>[], number] = await repository.findAllMyTransactions(user, params);
     return {

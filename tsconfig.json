@@ -6,7 +6,6 @@
     "baseUrl": ".",
     "strict": true,
     "esModuleInterop": true,
-    "ignoreDeprecations": "6.0",
     "paths": {
       "@config/*": ["config/*"],
       "@features/*": ["src/features/*"],
@@ -14,6 +13,13 @@
       "@libs/*": ["src/libs/*"],
       "@common/*": ["src/common/*"]
     },
-    "typeRoots": ["./node_modules/@types", "./src/common/type.ts"]
-  }
+    "rootDir": ".",
+    "outDir": "./dist",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./src/common/types"
+    ],
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules", "prisma/generated"]
 }

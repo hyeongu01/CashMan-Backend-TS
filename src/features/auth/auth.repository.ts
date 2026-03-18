@@ -2,7 +2,7 @@ import prismaClient from "@config/db.config";
 import {User} from "@features/users/users.dto";
 import {CreateUserParams} from "./auth.dto";
 import {ulid} from "ulid"
-import {AccountType, CurrencyCode} from "@common/type";
+import {AccountType, CurrencyCode} from "@common/types/type.js";
 import config from "@config/config";
 
 

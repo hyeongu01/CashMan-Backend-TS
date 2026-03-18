@@ -1,7 +1,7 @@
 import {OpenAPIV3} from "openapi-types";
 import {CreateCategoryRequestBody, CreateCategoryRequestBodySchema} from "@features/categories/categories.dto";
 import {JSONSchemaType} from "ajv";
-import {AccountType} from "@common/type";
+import {AccountType} from "@common/types/type.js";
 
 
 const TAG_NAME = "04. Categories";

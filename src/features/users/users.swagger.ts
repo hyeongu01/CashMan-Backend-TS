@@ -1,5 +1,5 @@
 import {OpenAPIV3} from "openapi-types";
-import {CurrencyCode} from "@common/type";
+import {CurrencyCode} from "@common/types/type.js";
 
 const TAG_NAME = "02. Users";
 

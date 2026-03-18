@@ -8,7 +8,7 @@ const featuresDir = resolve(__dirname, "../features");
 
 const allPaths: OpenAPIV3.PathsObject = {};
 for (const entry of readdirSync(featuresDir, {withFileTypes: true, recursive: true})) {
-    if (entry.name.endsWith(".swagger.ts")) {
+    if (entry.name.endsWith(".swagger.js") || entry.name.endsWith(".swagger.ts")) {
         const filePath = join(entry.parentPath, entry.name);
         const mod = await import(pathToFileURL(filePath).href);
         Object.assign(allPaths, mod.default);

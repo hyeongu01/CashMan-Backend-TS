@@ -9,7 +9,7 @@ import {customError} from "@common/CustomResponse";
 import axios from "axios";
 import * as repository from "./auth.repository";
 import {getUserById} from "@features/users/users.repository";
-import {AuthProvider} from "@common/type";
+import {AuthProvider} from "@common/types/type.js";
 import {User} from "@features/users/users.dto";
 import {decodeJWT, encodeJWT} from "@common/auth/jwt";
 import {ulid} from "ulid";

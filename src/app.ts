@@ -48,7 +48,7 @@ app.use((err: unknown, _req: Request, res: Response, _next: NextFunction) => {
     }
     if (err instanceof Prisma.PrismaClientKnownRequestError) {
         logger.error(`[Prisma] ${err.code}: ${err.message}`);
-        const { statusCode, ...body } = customError.SERVER_ERROR();
+        const { statusCode, ...body } = customError.SERVER_ERROR(err.message);
         return res.status(statusCode).json(body);
     }
 

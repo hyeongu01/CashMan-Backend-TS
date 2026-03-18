@@ -10,3 +10,9 @@ export async function getAllAccounts(user: User, currency?: string): Promise<Acc
         }
     })
 }
+
+export async function getAccountById(accountId: string) {
+    return prismaClient.account.findUnique({
+        where: {id: accountId },
+    })
+}

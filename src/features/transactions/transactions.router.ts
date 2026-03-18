@@ -1,7 +1,9 @@
 import {Router} from "express";
+import {authJwt} from "@common/auth/passport";
+import * as controller from "./transactions.controller";
 
 const router = Router();
 
-// router.get('/')
+router.post('/', authJwt, controller.createTransaction);
 
 export default router;

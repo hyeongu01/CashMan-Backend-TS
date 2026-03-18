@@ -19,6 +19,7 @@ export const swaggerSpec: OpenAPIV3.Document = {
     openapi: "3.0.0",
     servers: [
         {url: "http://localhost:3000", description: "Local"},
+        {url: "http://49.171.159.199:3000", description: "RaspberryPi"},
     ],
     tags: [
         {name: "01. Auth"},

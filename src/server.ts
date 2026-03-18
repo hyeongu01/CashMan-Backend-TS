@@ -3,6 +3,7 @@ import logger from "@libs/logger";
 import app from "./app";
 import redisClient from "@libs/redis";
 import {PrismaClientKnownRequestError} from "@prisma/client/runtime/client";
+import "@common/types/global";
 
 async function main() {
     try {

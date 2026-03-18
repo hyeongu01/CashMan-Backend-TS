@@ -1,5 +1,3 @@
-import {user} from "@generated/prisma/client.js";
-
 export const AuthProvider = {
     NAVER: "NAVER",
     // GOOGLE: "GOOGLE",
@@ -18,18 +16,11 @@ export const AccountType = {
     INVESTMENT: 2
 }
 
-
-
-declare global {
-    namespace Express {
-        interface User extends user {}
-    }
-
-    interface BigInt {
-        toJSON(): number;
-    }
+export type PaginationParams = {
+    page: string,
+    limit: string,
+    orderBy: string,
+    order: string,
 }
-BigInt.prototype.toJSON = function (): number {
-    return Number(this);
-}
+
 

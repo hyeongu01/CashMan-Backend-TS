@@ -1,4 +1,4 @@
-import type {CreateTransactionParams, Transaction} from "./transactions.dto";
+import type {CreateTransactionParams, Transaction, TransactionPaginationParams} from "./transactions.dto";
 import {type User} from "@features/users/users.dto";
 import prismaClient from "@config/db.config";
 import {ulid} from "ulid";
@@ -12,4 +12,40 @@ export async function createTransaction(user: User, params: CreateTransactionPar
             userId: user.id,
         }
     })
+}
+
+export async function findAllMyTransactions(user: User, params: TransactionPaginationParams): Promise<[Transaction<["category"]>[], number]> {
+    const {order, orderBy} = params
+    const page = Number(params.page)
+    const limit = Number(params.limit)
+
+    const where = {
+        userId: user.id,
+        ...(params.categoryId && { categoryId: params.categoryId }),
+        ...(params.fromAccountId && { fromAccountId: params.fromAccountId }),
+        ...(params.toAccountId && { toAccountId: params.toAccountId }),
+        ...((params.startDate || params.endDate) && {
+            transactionDate: {
+                ...(params.startDate && { gte: new Date(params.startDate) }),
+                ...(params.endDate && { lte: new Date(params.endDate) }),
+            }
+        }),
+    };
+
+    return prismaClient.$transaction([
+        prismaClient.transaction.findMany({
+            where: where,
+            include: {
+                category: true,
+            },
+            orderBy: [
+                {[orderBy]: (order) as "asc" | "desc"},
+            ],
+            skip: (page - 1) * limit,
+            take: limit,
+        }),
+        prismaClient.transaction.count({
+            where: where
+        })
+    ])
 }

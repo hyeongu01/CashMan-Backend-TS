@@ -15,10 +15,6 @@
     },
     "rootDir": ".",
     "outDir": "./dist",
-    "typeRoots": [
-      "./node_modules/@types",
-      "./src/common/types"
-    ],
     "skipLibCheck": true
   },
   "exclude": ["node_modules", "prisma/generated"]

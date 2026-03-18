@@ -1,8 +1,21 @@
 import {ajv, type JSONSchemaType, type ValidateFunction} from "@libs/ajv";
 import {transaction} from "@generated/prisma/client";
-import {CurrencyCode} from "@common/types/type";
+import {CurrencyCode, PaginationParams} from "@common/types/type";
+import {Prisma} from "@generated/prisma/client";
 
-export type Transaction = transaction;
+type TransactionRelations = {
+    category: true,
+    from_account: true,
+    to_account: true,
+}
+
+export type Transaction<T extends (keyof TransactionRelations)[] | undefined = undefined> =
+    (T extends (keyof TransactionRelations)[]
+        ? Prisma.transactionGetPayload<{include: Pick<TransactionRelations, T[number]>; }>
+        : transaction);
+
+
+
 
 
 export type CreateTransactionParams = {
@@ -29,6 +42,31 @@ export const CreateTransactionParamsSchema: JSONSchemaType<CreateTransactionPara
 }
 export const validateTransactionParams: ValidateFunction<CreateTransactionParams> = ajv.compile(CreateTransactionParamsSchema);
 
-
+export type TransactionPaginationParams = PaginationParams & {
+    categoryId?: string,
+    fromAccountId?: string,
+    toAccountId?: string,
+    startDate?: string,
+    endDate?: string,
+}
+export const TransactionPaginationParamsSchema: JSONSchemaType<TransactionPaginationParams> = {
+    type: "object",
+    properties: {
+        page: {type: "string", format: "int32"},
+        limit: {type: "string", format: "int32"},
+        orderBy: {type: "string"},
+        order: {
+            type: "string",
+            enum: ["asc", "desc"],
+        },
+        categoryId: {type: "string", nullable: true},
+        fromAccountId: {type: "string", nullable: true},
+        toAccountId: {type: "string", nullable: true},
+        startDate: {type: "string", nullable: true},
+        endDate: {type: "string", nullable: true},
+    },
+    required: ['page', 'limit', 'orderBy', 'order'],
+}
+export const validateTransactionPaginationParams: ValidateFunction<TransactionPaginationParams> = ajv.compile(TransactionPaginationParamsSchema);
 
 

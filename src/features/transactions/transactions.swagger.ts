@@ -226,7 +226,6 @@ const transactionsPaths: OpenAPIV3.PathsObject = {
     "/transactions/{transactionId}": {
         get: {
             summary: "거래 상세 조회",
-            deprecated: true,
             tags: [TAG_NAME],
             security: [{BearerAuth: []}],
             parameters: [
@@ -240,10 +239,42 @@ const transactionsPaths: OpenAPIV3.PathsObject = {
                 }
             ],
             responses: {
-                "200": {description: "success"},
+                "200": {
+                    description: "success",
+                    content: {
+                        'application/json': {
+                            schema: {
+                                type: "object",
+                                properties: {
+                                    id: {type: 'string'},
+                                    userId: {type: "string"},
+                                    type: {type: "number", description: "0: 수입, 1: 지출, 2: 저축 추가, 3: 저축 취소, 4: 투자 추가, 5: 투자 취소"},
+                                    categoryId: {type: "string", nullable: true},
+                                    fromAccountId: {type: "string", nullable: true},
+                                    toAccountId: {type: "string", nullable: true},
+                                    amount: {type: "number"},
+                                    currency: {type: "string", enum: Object.values(CurrencyCode)},
+                                    transactionDate: {type: "string", format: "date"},
+                                    createdAt: {type: "string", format: "date-time"},
+                                    updatedAt: {type: "string", format: "date-time"},
+                                    category: {
+                                        type: 'object',
+                                        nullable: true,
+                                        properties: {
+                                            id: {type: "string"},
+                                            userId: {type: "string"},
+                                            groupType: {type: "number"},
+                                            name: {type: "string"}
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
                 "400": {description: "Bad Request"},
                 "401": {description: "Unauthorized"},
-                "403": {description: "Forbidden"},
+                "404": {description: "Not Found"},
                 "500": {description: "Server Error"},
             }
         },

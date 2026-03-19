@@ -49,3 +49,15 @@ export async function findAllMyTransactions(user: User, params: TransactionPagin
         })
     ])
 }
+
+export async function findMyTransaction(user: User, transactionId: string): Promise<Transaction<["category"]> | null> {
+    return prismaClient.transaction.findUnique({
+        where: {
+            id: transactionId,
+            userId: user.id
+        },
+        include: {
+            category: true,
+        }
+    })
+}

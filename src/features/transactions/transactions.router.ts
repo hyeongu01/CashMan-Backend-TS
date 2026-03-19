@@ -6,5 +6,6 @@ const router = Router();
 
 router.post('/', authJwt, controller.createTransaction);
 router.get("/", authJwt, controller.findAllMyTransactions);
+router.get("/:transactionId", authJwt, controller.findMyTransaction);
 
 export default router;

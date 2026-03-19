@@ -35,3 +35,17 @@ export async function findAllMyTransactions(req: Request, res: Response): Promis
     const params = await service.findAllMyTransactions(user, paginationParams);
     return res.status(200).json(makeResponse(params));
 }
+
+export async function findMyTransaction(req: Request, res: Response): Promise<any> {
+    const user = req.user;
+    const transactionId = req.params.transactionId;
+
+    if (!user) throw customError.UNAUTHORIZED();
+    if (typeof transactionId !== "string") throw customError.BAD_REQUEST();
+
+    const data: Transaction<["category"]> | null = await repository.findMyTransaction(user, transactionId);
+    if (!data) throw customError.NOT_FOUND();
+    return res.status(200).json(makeResponse({
+        data: transactionConverter(data)
+    }));
+}

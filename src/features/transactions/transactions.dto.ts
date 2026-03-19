@@ -70,3 +70,25 @@ export const TransactionPaginationParamsSchema: JSONSchemaType<TransactionPagina
 export const validateTransactionPaginationParams: ValidateFunction<TransactionPaginationParams> = ajv.compile(TransactionPaginationParamsSchema);
 
 
+export type UpdateTransactionParams = {
+    type?: number;
+    categoryId?: string;
+    fromAccountId?: string;
+    toAccountId?: string;
+    amount?: number;
+    transactionDate?: string;
+}
+export const UpdateTransactionParamsSchema: JSONSchemaType<UpdateTransactionParams> = {
+    type: "object",
+    properties: {
+        type: {type: "number", nullable: true},
+        categoryId: {type: "string", nullable: true},
+        fromAccountId: {type: "string", nullable: true},
+        toAccountId: {type: "string", nullable: true},
+        amount: {type: "number", nullable: true},
+        transactionDate: {type: "string", format: "date", nullable: true},
+    }
+}
+export const validateUpdateTransactionParams: ValidateFunction<UpdateTransactionParams> = ajv.compile(UpdateTransactionParamsSchema);
+
+

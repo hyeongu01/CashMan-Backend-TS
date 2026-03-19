@@ -3,7 +3,7 @@ import {customError, makeResponse} from "@common/CustomResponse";
 import {
     validateTransactionParams,
     type Transaction,
-    TransactionPaginationParams, validateTransactionPaginationParams
+    TransactionPaginationParams, validateTransactionPaginationParams, validateUpdateTransactionParams
 } from "@features/transactions/transactions.dto";
 import * as repository from "./transactions.repository";
 import * as service from "./transactions.service";
@@ -48,4 +48,28 @@ export async function findMyTransaction(req: Request, res: Response): Promise<an
     return res.status(200).json(makeResponse({
         data: transactionConverter(data)
     }));
+}
+
+export async function updateMyTransaction(req: Request, res: Response): Promise<any> {
+    const user = req.user;
+    const transactionId = req.params.transactionId;
+    const params = req.body;
+
+    if (!user) throw customError.UNAUTHORIZED();
+    if (!validateUpdateTransactionParams(params)) throw validateUpdateTransactionParams.errors;
+    if (typeof transactionId !== "string") throw customError.BAD_REQUEST();
+
+    const data: Transaction = await service.updateTransaction(user, transactionId, params);
+    return res.status(200).json(makeResponse({data: transactionConverter(data)}));
+}
+
+export async function deleteMyTransaction(req: Request, res: Response): Promise<any> {
+    const user = req.user;
+    const transactionId = req.params.transactionId;
+
+    if (!user) throw customError.UNAUTHORIZED();
+    if (typeof transactionId !== "string") throw customError.BAD_REQUEST();
+
+    await service.deleteTransaction(user, transactionId);
+    return res.status(200).json(makeResponse({}))
 }

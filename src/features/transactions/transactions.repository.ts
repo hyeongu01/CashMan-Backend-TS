@@ -1,4 +1,9 @@
-import type {CreateTransactionParams, Transaction, TransactionPaginationParams} from "./transactions.dto";
+import type {
+    CreateTransactionParams,
+    Transaction,
+    TransactionPaginationParams,
+    UpdateTransactionParams
+} from "./transactions.dto";
 import {type User} from "@features/users/users.dto";
 import prismaClient from "@config/db.config";
 import {ulid} from "ulid";
@@ -59,5 +64,27 @@ export async function findMyTransaction(user: User, transactionId: string): Prom
         include: {
             category: true,
         }
+    })
+}
+
+export async function findTransactionById(transactionId: string): Promise<Transaction | null> {
+    return prismaClient.transaction.findUnique({
+        where: {id: transactionId},
+    })
+}
+
+export async function updateTransaction(transactionId: string, params: UpdateTransactionParams): Promise<Transaction> {
+    return prismaClient.transaction.update({
+        where: {id: transactionId},
+        data: {
+            ...params,
+            ...(params.transactionDate !== undefined && {transactionDate: new Date(params.transactionDate)}),
+        },
+    })
+}
+
+export async function deleteTransaction(transactionId: string): Promise<void> {
+    await prismaClient.transaction.delete({
+        where: {id: transactionId}
     })
 }

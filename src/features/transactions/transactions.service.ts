@@ -24,7 +24,7 @@ export async function createTransaction(user: User, params: CreateTransactionPar
     return repository.createTransaction(user, params);
 }
 
-export async function findAllMyTransactions(user: User, params: TransactionPaginationParams): Promise<any> {
+export async function findAllMyTransactions(user: User, params: TransactionPaginationParams): Promise<{data: object, meta: object}> {
     const {categoryId, fromAccountId, toAccountId} = params;
 
     const category = categoryId ? await findCategoryById(categoryId) : null;

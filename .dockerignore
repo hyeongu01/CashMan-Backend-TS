@@ -4,10 +4,13 @@ logs
 .claude
 CLAUDE.md
 
+.env
+.env.*
+
 .gitignore
 .git
 
 dist
 
-dockerfile
+Dockerfile
 docker-compose.yml

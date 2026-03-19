@@ -1,0 +1,40 @@
+services:
+  backend:
+    build: .
+    command: ["sh", "-c", "npx prisma migrate reset --force && npm run start"]
+    ports:
+      - "3000:3000"
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_started
+    env_file:
+      - .env.deploy
+  db:
+    image: mysql:latest
+    restart: always
+    env_file:
+      - .env.deploy
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+  redis:
+    image: redis:latest
+    restart: always
+    ports:
+      - "6379:6379"
+
+volumes:
+  db-data:
+
+#docker-compose 로 배포
+#  docker compose --env-file .env.deploy up --build -d
+#중단 및 제거
+#  docker compose down

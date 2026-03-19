@@ -37,7 +37,7 @@ const config: Config = {
         port: Number(process.env.DATABASE_PORT) || 3306,
         user: process.env.DATABASE_USER || "root",
         password: process.env.DATABASE_PASSWORD || "1234",
-        database: process.env.DATABASE_NAME || "myDB"
+        database: process.env.DATABASE_NAME || "myDB",
     },
     redis: {
         url: process.env.REDIS_URL || "redis://:@localhost:6379",

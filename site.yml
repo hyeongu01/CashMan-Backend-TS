@@ -11,21 +11,13 @@
 
 
   tasks:
-    - name: who am i 확인
-      ansible.builtin.shell: whoami
-      register: result
-
-    - name: 출력
-      ansible.builtin.debug:
-        msg: "{{ result }}"
-
     - name: Login to GHCR
       community.docker.docker_login:
         registry_url: ghcr.io
         username: "{{ ghcr_username }}"
         password: "{{ ghcr_password }}"
         reauthorize: true
-#      no_log: true
+      no_log: true
 
     - name: Pull image
       community.docker.docker_image:
@@ -33,8 +25,18 @@
         source: pull
         force_source: true
 
-    - name: Docker image 확인
-      ansible.builtin.shell: docker images
+    - name: 기존 docker 중지 및 제거
+      ansible.builtin.shell: docker stop app && docker rm app
+
+    - name: 새로운 docker 실행
+      community.docker.docker_container:
+        name: app
+        image: "{{ image }}"
+        state: started
+        restart_policy: unless-stopped
+        ports:
+          - "3000:3000"
+        env_file: /home/choihw/.env
       register: result
 
     - name: 출력

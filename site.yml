@@ -12,7 +12,7 @@
 
   tasks:
     - name: who am i 확인
-      ansible.builtin.shell: docker images
+      ansible.builtin.shell: whoami
       register: result
 
     - name: 출력

@@ -13,7 +13,7 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/delete-package-version@v5
+      - uses: actions/delete-package-versions@v5
         with:
           package-name: "cashman-backend-ts"
           package-type: "container"

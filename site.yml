@@ -6,6 +6,9 @@
     app_dir: /home/choihw/CashMan-Backend-TS
     branch: main
     image: ghcr.io/hyeongu01/cashman-backend-ts:latest
+    result: "{{ lookup('env', 'SEMAPHORE_ACCESS_KEY_PASSWORD') }}"
+    result2: "{{ lookup('env') }}"
+
 
   tasks:
 #    - name: Login to GHCR
@@ -23,7 +26,7 @@
 
     - name: 출력
       ansible.builtin.debug:
-        msg: "{{ result.stdout }}"
+        msg: "{{ result }} {{result2}}"
 
     - name: test ping
       ansible.builtin.command: echo "test"

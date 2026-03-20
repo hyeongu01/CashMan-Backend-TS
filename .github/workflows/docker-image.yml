@@ -2,9 +2,8 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    tags:
+      - "v*"
 
 env:
   REGISTRY: ghcr.io
@@ -13,6 +12,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: github.event.base_ref == 'refs/heads/main'
 
     permissions:
       contents: read
@@ -37,8 +37,10 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha
-            type=raw,value=latest,enable=${{ github.ref == 'refs/heads/main' }}
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+            type=semver,pattern={{major}}
+            type=raw,value=latest
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3

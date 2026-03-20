@@ -6,8 +6,8 @@
     app_dir: /home/choihw/CashMan-Backend-TS
     branch: main
     image: ghcr.io/hyeongu01/cashman-backend-ts:latest
-    result: "{{ lookup('env', 'SEMAPHORE_ACCESS_KEY_PASSWORD') }}"
-    result2: "{{ lookup('env') }}"
+    result: "{{ lookup('env', 'ghcr_username') }}"
+    result2: "{{ lookup('env', 'ghcr_password') }}"
 
 
   tasks:

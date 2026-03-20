@@ -1,6 +1,6 @@
 - hosts: all
   gather_facts: false
-  become: true
+#  become: true
 
   vars:
     app_dir: /home/choihw/CashMan-Backend-TS
@@ -18,16 +18,12 @@
 #        source: pull
 #        force_source: true
     - name: 환경변수 확인
-      ansible.builtin.shell: env | grep -i semaphore || true  # grep 실패해도 계속 진행
+      ansible.builtin.shell: env | grep -i semaphore
       register: result
-      delegate_to: localhost   # ← Pi가 아닌 Semaphore 서버에서 실행
-      become: false            # ← 추가
 
     - name: 출력
       ansible.builtin.debug:
         msg: "{{ result.stdout }}"
-      delegate_to: localhost
-      become: false            # ← 추가
 
     - name: test ping
       ansible.builtin.command: echo "test"

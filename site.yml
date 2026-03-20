@@ -11,6 +11,14 @@
 
 
   tasks:
+    - name: who am i 확인
+      ansible.builtin.shell: docker images
+      register: result
+
+    - name: 출력
+      ansible.builtin.debug:
+        msg: "{{ result }}"
+
     - name: Login to GHCR
       community.docker.docker_login:
         registry_url: ghcr.io

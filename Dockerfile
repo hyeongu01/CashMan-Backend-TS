@@ -4,7 +4,7 @@
 # ----------------
 # 1. builder stage
 # ----------------
-FROM node:16 AS builder
+FROM node:22 AS builder
 
 WORKDIR /app
 COPY package*.json ./
@@ -18,7 +18,7 @@ RUN npm run build
 # ----------------
 # 2. runtime stage
 # ----------------
-FROM node:16-slim
+FROM node:22-slim
 
 RUN groupadd -r appgroup && useradd -r -g appgroup appuser
 

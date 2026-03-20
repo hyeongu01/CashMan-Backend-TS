@@ -22,5 +22,5 @@ jobs:
         with:
           package-name: "cashman-backend-ts"
           package-type: "container"
-          min-versions-to-keep: inputs.remaining_num
+          min-versions-to-keep: ${{ inputs.remaining_num }}
           ignore-versions: '^latest$'

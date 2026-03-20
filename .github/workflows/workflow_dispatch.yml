@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+#    inputs:
+#
+
+env:
+  re: re
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+
+    steps:
+      - uses: actions/delete-package-version@v5
+        with:
+          package-name: "cashman-backend-ts"
+          package-type: "container"
+          min-versions-to-keep: 3
+          ignore-versions: '^latest$'

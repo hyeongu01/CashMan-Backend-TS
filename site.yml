@@ -1,11 +1,19 @@
 - hosts: all
   gather_facts: false
+  become: true
+
   vars:
     app_dir: /home/choihw/CashMan-Backend-TS
     branch: main
+    image: ghcr.io/hyeongu01/cashman-backend-ts:latest
 
   tasks:
     - name: test ping
       ansible.builtin.command: echo "test"
+      register: result
+
+    - name: debug print
+      ansible.builtin.debug:
+        msg: "{{ result.stdout }}"
 
 

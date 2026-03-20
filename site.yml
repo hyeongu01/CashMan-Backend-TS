@@ -8,6 +8,23 @@
     image: ghcr.io/hyeongu01/cashman-backend-ts:latest
 
   tasks:
+#    - name: Login to GHCR
+#      community.docker.docker_login:
+#        registry_url: ghcr.io
+#        username: "{{  }}"
+#    - name: Pull image
+#      community.docker.docker_image:
+#        name: "{{ image }}"
+#        source: pull
+#        force_source: true
+    - name: 환경변수 확인
+      ansible.builtin.shell: env | grep -i semaphore
+      register: result
+
+    - name: 출력
+      ansible.builtin.debug:
+        msg: "{{ result.stdout }}"
+
     - name: test ping
       ansible.builtin.command: echo "test"
       register: result

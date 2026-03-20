@@ -36,6 +36,7 @@ EXPOSE 3000
 ENTRYPOINT ["node"]
 CMD ["dist/src/server.js"]
 
+
 # 이미지 생성:
 #    docker build -t cashman-backend .
 # 이미지로 컨테이너 실행

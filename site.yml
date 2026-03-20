@@ -6,6 +6,6 @@
 
   tasks:
     - name: test ping
-      ping:
+      ansible.builtin.command: echo "test"
 
 

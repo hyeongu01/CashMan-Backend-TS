@@ -1,4 +1,4 @@
-- host: all
+- hosts: all
   gather_facts: false
   vars:
     app_dir: /home/choihw/CashMan-Backend-TS

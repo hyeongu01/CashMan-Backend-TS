@@ -10,7 +10,7 @@ CLAUDE.md
 .gitignore
 .git
 
-dist
+#dist
 
 Dockerfile
 docker-compose.yml

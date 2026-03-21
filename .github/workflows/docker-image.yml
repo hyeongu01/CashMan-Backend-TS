@@ -23,6 +23,11 @@ jobs:
         with:
           ref: main
 
+      - name: Get commit info
+        run: |
+          echo "COMMIT_MSG=$(git log -1 --pretty=%s)" >> $GITHUB_ENV
+          echo "COMMIT_BODY=$(git log -1 --pretty=%b)" >> $GITHUB_ENV
+
       - name: Login to GHCR
         uses: docker/login-action@v3
         with:
@@ -40,6 +45,9 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=semver,pattern={{major}}
             type=raw,value=latest
+          labels: |
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.description=${{ env.COMMIT_MSG }} ${{ env.COMMIT_BODY}}
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3

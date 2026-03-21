@@ -12,15 +12,53 @@ on:
 #env:
 
 jobs:
-  cleanup:
-    runs-on: ubuntu-latest
-    permissions:
-      packages: write
+#  cleanup:
+#    runs-on: ubuntu-latest
+#    permissions:
+#      packages: write
+#
+#    steps:
+#      - uses: actions/delete-package-versions@v5
+#        with:
+#          package-name: "cashman-backend-ts"
+#          package-type: "container"
+#          min-versions-to-keep: ${{ inputs.remaining_num }}
+#          ignore-versions: '^latest$'
 
+  firstjob:
+    runs-on: ubuntu-latest
+    outputs:
+      today: ${{ steps.get-date.outputs.date }}
     steps:
-      - uses: actions/delete-package-versions@v5
-        with:
-          package-name: "cashman-backend-ts"
-          package-type: "container"
-          min-versions-to-keep: ${{ inputs.remaining_num }}
-          ignore-versions: '^latest$'
+      - name: Get today's date
+        id: get-date
+        run: |
+          DATE=$(date '+%Y-%m-%d')
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+          echo "오늘 날짜: $DATE"
+
+  secondjob:
+    runs-on: ubuntu-latest
+    outputs:
+      current_time: ${{ steps.get-time.outputs.time }}
+    steps:
+      - name: Get current time
+        id: get-time
+        run: |
+          TIME=$(date '+%H:%M:%S')
+          echo "time=$TIME" >> $GITHUB_OUTPUT
+          echo "현재 시간: $TIME"
+
+  thirdjob:
+    runs-on: ubuntu-latest
+    needs: [firstjob, secondjob]
+    steps:
+      - name: Merge and log date + time
+        run: |
+          DATE="${{ needs.firstjob.outputs.today }}"
+          TIME="${{ needs.secondjob.outputs.current_time }}"
+          echo "=============================="
+          echo "📅 날짜: $DATE"
+          echo "⏰ 시간: $TIME"
+          echo "🕐 병합 결과: $DATE $TIME"
+          echo "=============================="

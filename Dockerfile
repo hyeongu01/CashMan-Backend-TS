@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 # check=error=true
 
+# test aa
 # ----------------
 # 1. builder stage
 # ----------------
